@@ -1,0 +1,16 @@
+{
+  "name": "sequelize router generator",
+  "version": "1.0.0",
+  "description": "Sequelize router generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexy FONDEVILLE <alexy.fondeville@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^5.1.0",
+    "mkdirp": "^0.5.1"
+  }
+}
