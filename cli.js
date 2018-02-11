@@ -23,6 +23,9 @@ fs.readdir(modelsFolder, (err, files) => {
     filesName.push(file.replace(/.js/g, ""));
   });
 
+  let index = filesName.indexOf("index");
+  if (index !== -1) filesName.splice(index, 1);
+
   let questions = [
     {
       type: 'list',
@@ -44,12 +47,12 @@ fs.readdir(modelsFolder, (err, files) => {
 
       let routerNameObject = prepareRouteNameObject(routerName, postData);
 
-      fs.readFile('baseRouter.js', "utf8", function (baseErr, baseFileData) {
+      fs.readFile(__dirname+'/base/baseRouter.js', "utf8", function (baseErr, baseFileData) {
         for (let key in routerNameObject) {
           let stringToReplace = "{{routeName." + key + "}}";
           baseFileData = baseFileData.replace(new RegExp(stringToReplace, 'g'), routerNameObject[key]);
         }
-        fs.readFile('baseRouterIndex.js', "utf8", function (baseRouterIndexErr, baseRouterIndexFileData) {
+        fs.readFile(__dirname+'/base/baseRouterIndex.js', "utf8", function (baseRouterIndexErr, baseRouterIndexFileData) {
           mkdirp('./router', function (err) {
             fs.readFile('./router/' + routerName + '.js', "utf8", function (fileError, fileExist) {
               fs.readFile('./router/index.js', "utf8", function (indexErr, indexFile) {

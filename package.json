@@ -1,10 +1,10 @@
 {
   "name": "sr-generator-cli",
-  "version": "1.0.3",
+  "version": "1.0.10",
   "description": "A Sequelize router generator CLI for Nodejs",
   "main": "cli.js",
   "bin": {
-    "sequelize generate router": "./cli.js"
+    "sequelize-gr": "./cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

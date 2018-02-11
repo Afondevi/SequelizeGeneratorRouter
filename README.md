@@ -41,7 +41,7 @@ router(app, db);
 
 run
 ```curl
-sequelize generate router
+sequelize-gr
 ```
 
 and select the file name to generate.
@@ -87,7 +87,7 @@ when your model is generate, you can use the sr-generator-cli.
 
 Run :
 ```curl
-sequelize generate router
+sequelize-gr
 ``` 
 
 Select the file name to generate, and it's finish.
