@@ -4,14 +4,14 @@ A simple generator for Sequelize router with nodejs, so you need to use sequeliz
 You must to have a `./models` folder with your sequelize models inside.
 generate by :
 
-```
+```curl
 sequelize model:create --name NAME_OF_SCRIPT --attributes "..."
 ```
 
 
 ## Installation
 
-```
+```curl
 npm i sr-generator-cli -g
 ```
 
@@ -33,14 +33,14 @@ module.exports = function router(app, db) {
 
 After, in your express server.js file, add :
 
-```
+```javascript
 const router = require('./router/index');
 
 router(app, db);
 ```
 
 run
-``` 
+```curl
 sequelize generate router
 ```
 
@@ -51,19 +51,23 @@ and select the file name to generate.
 For example, we will create an API to save phone numbers.
 Run : 
 
-```
+```curl
 sequelize model:create --name Phones --attributes "
 phoneNumber:float,
 validated:boolean
 "
 ```
 
-You will get a model file `./models/phones.js` and a migration file `./migrations/XXXXXXXXX-create-phones.js.
+You will get a model file 
+`./models/phones.js`
+and a migration file 
+`./migrations/XXXXXXXXX-create-phones.js`
+.
 Your model look like this :
 
 ```javascript
 'use strict';
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {`
   let Phones = sequelize.define('Phones', {
     phoneNumber: DataTypes.FLOAT,
     validated: DataTypes.BOOLEAN
@@ -82,7 +86,7 @@ The sr-generator-cli use the model file to generate the routes of this file.
 when your model is generate, you can use the sr-generator-cli.
 
 Run :
-```
+```curl
 sequelize generate router
 ``` 
 
@@ -149,7 +153,7 @@ module.exports = (app, db) => {
 };
 ```
 
-And the route is add in `/router/index.js`
+And the require route is add in `/router/index.js`
 
 After that, you can test/use your route with Postman (for example) 
 
