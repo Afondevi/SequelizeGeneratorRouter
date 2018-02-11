@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * SEQUELIZE GENERATOR ROUTER
  */
@@ -9,7 +11,7 @@ exports.SequelizeGeneratorRouter = function() {
   let inquirer = require('inquirer');
   let fs = require('fs');
   let mkdirp = require('mkdirp');
-  const modelsFolder = './model/';
+  const modelsFolder = './models/';
 
   String.prototype.capitalize = function () {
     return this.replace(/(^|\s)([a-z])/g, function (m, p1, p2) {
@@ -35,7 +37,7 @@ exports.SequelizeGeneratorRouter = function() {
     inquirer.prompt(questions).then(answers => {
 
       let routerName = answers.router;
-      fs.readFile('./model/' + routerName + '.js', "utf8", function (err, fileData) {
+      fs.readFile('./models/' + routerName + '.js', "utf8", function (err, fileData) {
         if (err) {
           console.log("\n  The model named " + routerName + ".js doesn't exist !");
         }
